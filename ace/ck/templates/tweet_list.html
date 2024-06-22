@@ -11,11 +11,15 @@ Chirag Tweet
 <div class="container row-gap-3">
     {% for tweet in tweets %}
     <div class="card" styles="width: 18rem;">
-        <img src="..." class="card-img-top" alt="...">
+        <img src="{{tweet.photo.url}}" class="card-img-top" alt="...">
+        <video controls class="card-img-top">
+            <source src="{{ tweet.video.url }}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
         <div class="card-body">
-            <h5 class="card-title">{{ tweet.title }}</h5>
-            <p class="card-text">{{ tweet.content }}</p>
-            <a href="{% url tweet_update tweet.id %}" class="btn btn-primary">Update</a>
+            <h5 class="card-title">{{ tweet.user.username }}</h5>
+            <p class="card-text">{{ tweet.text }}</p>
+            <a href="{% url tweet_edit tweet.id %}" class="btn btn-primary">Edit</a>
             <a href="{% url tweet_delete tweet.id %}" class="btn btn-danger">Delete</a>
         </div>
     </div>
