@@ -8,12 +8,14 @@ Chirag Tweet
 <h1 class="text-center mt-4">Welcome to Chirags Django project</h1>
 
 <a class="btn btn-primary mb-4" href="{% url 'tweet_create' %}">Create A Tweet</a>
-<div class="container row gap-3">
+<div class="container row gap-3" sty>
     {% for tweet in tweets %}
-    <div class="card" styles="width: 18rem;">
+    <div class="card" style="width:18rem;">
+        <br>
         <img src="{{tweet.photo.url}}" class="card-img-top" alt="...">
+        <br>
         {% if tweet.video %}
-        <video controls class="img-thumbnail">
+        <video controls class="card-img-top">
             <source src="{{ tweet.video.url }}" type="video/mp4">
             Your browser does not support the video tag.
         </video>
