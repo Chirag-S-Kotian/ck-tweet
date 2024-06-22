@@ -6,4 +6,11 @@ Chirag Tweet
 
 {% block content %}
 <h1 class="text-center mt-4">Welcome to Chirags Django project</h1>
+
+<h2 class="text-center mt-4">
+    {% if form.instance.pk %}
+     Edit Tweet 
+     {% else %} 
+     Create Tweet 
+    {% endif %}</h2>
 {% endblock %}
