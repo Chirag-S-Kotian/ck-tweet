@@ -7,7 +7,7 @@ Chirag Tweet
 {% block content %}
 <h1 class="text-center mt-4">Welcome to Chirags Django project</h1>
 
-<h2 class="text-center mt-4">
+<h3 class="text-center mt-4">
     {% if form.instance.pk %}
      Edit Tweet 
      {% else %} 
@@ -17,7 +17,7 @@ Chirag Tweet
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit" class="btn btn-warning mt-4">Submit</button>
+        <a href="{% url 'tweet_list' %}" class="btn btn-primary mt-4">Back to Tweet List</a>
     </form>
-    <a href="{% url 'tweet_list' %}" class="btn btn-primary mt-4">Back to Tweet List</a>
-</h2>
+</h3>
 {% endblock %}
