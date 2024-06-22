@@ -7,15 +7,17 @@ Chirag Tweet
 {% block content %}
 <h1 class="text-center mt-4">Welcome to Chirags Django project</h1>
 
-<a class="btn btn-primary mb-4" href="{% url tweet_create %}">Create A Tweet</a>
+<a class="btn btn-primary mb-4" href="{% url 'tweet_create' %}">Create A Tweet</a>
 <div class="container row gap-3">
     {% for tweet in tweets %}
     <div class="card" styles="width: 18rem;">
         <img src="{{tweet.photo.url}}" class="card-img-top" alt="...">
-        <video controls class="card-img-top">
+        {% if tweet.video %}
+        <video controls class="img-thumbnail">
             <source src="{{ tweet.video.url }}" type="video/mp4">
             Your browser does not support the video tag.
         </video>
+        {% endif %}
         <div class="card-body">
             <h5 class="card-title">{{ tweet.user.username }}</h5>
             <p class="card-text">{{ tweet.text }}</p>
