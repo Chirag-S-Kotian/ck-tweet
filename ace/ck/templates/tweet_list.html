@@ -12,8 +12,11 @@ Chirag Tweet
     {% for tweet in tweets %}
     <div class="card" style="width:18rem;">
         <br>
-        <img src="{{tweet.photo.url}}" class="card-img-top" alt="...">
-        <br>
+        {% if tweet.photo %}
+            <img src="{{ tweet.photo.url }}" alt="Tweet Image">
+        {% else %}
+            <p>No image available</p>
+        {% endif %}<br>
         {% if tweet.video %}
         <video controls class="card-img-top">
             <source src="{{ tweet.video.url }}" type="video/mp4">
