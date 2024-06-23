@@ -17,7 +17,7 @@ def tweet_list(request):
 
 @login_required
 def tweet_create(request):
-    if request.model == "POST":
+    if request.method == "POST":
        form = TweetForm(request.POST, request.FILES)
        if form.is_valid():
            tweet = form.save(commit=False)
